@@ -1,0 +1,890 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Lora', serif;
+    line-height: 1.6;
+    background: #e0e0e0;
+    color: #333;
+    padding: 20px;
+}
+
+header {
+    background: #222;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+nav a {
+    color: #ddd;
+    margin: 0 15px;
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: #fff;
+}
+
+section {
+    margin: 40px 0;
+}
+
+h1, h2 {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+p {
+    text-align: center;
+}
+
+strong {
+  color: #DC3545; 
+  font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
+/* ##### NAVBAR ##### */
+
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #1a1a1a; /* darker black background */
+  padding: 20px 0;
+  gap: 25px; /* slightly more space between links */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2); /* soft shadow for depth */
+}
+
+.nav-link {
+  color: #f0f0f0;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 12px 24px;
+  background: transparent; /* no background unless hover */
+  border: 2px solid #555;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  font-size: 18px;
+  letter-spacing: 0.5px;
+}
+
+.nav-link:hover {
+  background: #3498db; /* more vibrant blue */
+  border-color: #3498db;
+  color: white;
+  transform: translateY(-4px);
+  box-shadow: 0 4px 10px rgba(52, 152, 219, 0.4); /* glow effect */
+}
+
+
+
+
+
+
+
+
+
+
+/*    ##### TIMELINE #####    */
+
+#timeline {
+    position: relative;
+    width: 90%;
+    margin: 0 auto;
+    padding: 100px 0;
+
+}
+
+#timeline::before {
+  content: "";
+  position: absolute;
+  top: 250px;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  border-left: 2px dashed #ccc;
+  transform: translateX(-50%);
+}
+
+
+.timeline-event {
+  padding: 20px;
+  width: 45%;
+  background: #f2f2f2;
+  border-left: 5px solid #ccc;
+  margin-bottom: 30px;
+  position: relative;
+  border-radius: 6px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 2s ease, transform 2s ease;
+}
+
+.timeline-event.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+    
+
+.timeline-event.left {
+  float: left;
+  clear: both;
+}
+
+
+.timeline-event.right {
+  float: right;
+  clear: both;
+}
+
+.timeline-event h2 {
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.timeline-event p {
+  font-size: 14px;
+}
+
+
+.event-text {
+  width: 45%;
+  background: #f2f2f2;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+
+.event-image img {
+  width: 45%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+
+
+.negative-violence {
+  border-color: #DC3545;
+  background: #ffe6e6;
+}
+
+.negative-legislation {
+  border-color: #FF8C00;
+  background: #FFE5B4;
+}
+
+.positive {
+  border-color: #28A745;
+  background: #e6ffe6;
+}
+
+.neutral {
+  border-color: #007BFF;
+  background: #e6f0ff;
+}
+
+.hidden {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease-out;
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+
+
+
+/* Legend */
+
+.legend-container {
+  background: #f9f9f9;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  max-width: 600px;
+  margin: -70px auto 0 auto;
+  margin-bottom: 60px;
+  text-align: center;
+}
+
+
+
+.legend-container h3 {
+  font-size: 20px;
+  margin-bottom: 20px;
+  color: #333;
+  text-align: center;
+}
+
+
+.timeline-legend {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap; /* Allow it to wrap if needed on small screens */
+  gap: 30px; /* Space between the items */
+  margin-top: 20px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: #555;
+}
+
+.legend-color {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+/* Color dots */
+.genocidal-dot { background: #DC3545; }
+.legal-dot { background: #007BFF; }
+.positive-dot { background: #28A745; }
+.neutral-dot { background: #007BFF; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*    ##### TIMELINE BAR #####    */
+
+
+.timeline-bar h2 {
+    text-align: center
+}
+
+.timeline-container {
+  width: 90%;
+  margin: 80px auto 0 auto;
+  text-align: center;
+  font-family: 'Lora', serif;
+}
+
+.timeline-bar {
+  display: flex;
+  height: 30px;
+  border-radius: 15px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.segment {
+  height: 100%;
+}
+
+.genocidal { background: #DC3545; flex: 25; }
+.legal { background: #FF8C00; flex: 25; }
+.genocidal2 { background: #DC3545; flex: 20; }
+.global { background: #28A745; flex: 10; }
+
+.timeline-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  margin-top: 5px;
+  color: #555;
+}
+
+.era-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  margin-top: -10px;
+}
+
+.legend {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  margin: 5px 10px;
+  font-size: 14px;
+}
+
+.legend-color {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+.genocidal-dot { background: #DC3545; }
+.legal-dot { background: #FF8C00; }
+.global-dot { background: #28A745; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* MEDIA BIAS */
+
+
+
+
+#media {
+  width: 90%;
+  margin: 100px auto;
+  text-align: center;
+  font-family: 'Lora', serif;
+}
+
+#media h2 {
+  font-size: 28px;
+  margin-bottom: 80px;
+}
+
+.date-block h3 {
+  font-size: 80px;
+  color: #DC3545;
+  margin: 0; /* No margin at all */
+  margin-top: 120px;
+  padding: 0; /* No padding at all */
+  text-align: center;
+  font-weight: bold;
+  line-height: 1.1; /* Tight line height */
+}
+
+.date-block h4 {
+  font-size: 24px;
+  color: #555;
+  margin-top: 10px; /* Only 10px space */
+  margin-bottom: 50px;
+  text-align: center;
+  font-weight: normal;
+}
+
+
+/* Fade-in animation */
+.hidden-media {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 1s ease-out;
+}
+
+.visible-media {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* Media analysis block */
+.media-day {
+  background: #f9f9f9;
+  padding: 30px;
+  margin-bottom: 70px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Text inside analysis */
+.media-day p {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 20px;
+  line-height: 1.7;
+}
+
+/* Article links */
+.article-list {
+  list-style: none;
+  padding: 0;
+}
+
+.article-list li {
+  margin-bottom: 10px;
+}
+
+.article-list a {
+  color: #007BFF;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.article-list a:hover {
+  text-decoration: underline;
+}
+
+
+
+
+#media-comparison {
+  width: 90%;
+  margin: 100px auto;
+  font-family: 'Lora', serif;
+  text-align: center;
+}
+
+#media-comparison h2 {
+  font-size: 26px;
+  margin-bottom: 40px;
+  color: #222;
+}
+
+.media-table-container {
+  overflow-x: auto; 
+}
+
+.media-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 50px;
+}
+
+.media-table th, .media-table td {
+  border: 1px solid #ddd;
+  padding: 15px 20px;
+  text-align: left;
+  vertical-align: top;
+  background-color: #fff;
+}
+
+.media-table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.media-table td {
+  font-size: 15px;
+  color: #555;
+}
+
+.media-table tr:nth-child(even) td {
+  background-color: #f9f9f9;
+}
+
+.media-table strong {
+  color: #DC3545;
+}
+
+
+.headline-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Space between images */
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.headline-gallery img {
+  height: 300px; /* Fixed height for consistency */
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.headline-gallery img:hover {
+  transform: scale(1.05);
+}
+
+
+
+
+
+
+
+
+/*    ##### DATA VISUALIZATIONS #####    */
+
+
+/* Section for Data and Visualizations */
+#data {
+  width: 90%;
+  margin: 100px auto;
+  text-align: center;
+  font-family: 'Lora', serif;
+}
+
+#data h2 {
+  margin-bottom: 20px;
+  font-size: 48px;
+}
+
+#data p {
+  background: #ffffff; /* white background */
+  font-size: 24px;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 10px; /* rounded corners */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* subtle shadow */
+  transition: all 0.3s ease; /* smooth hover */
+}
+
+
+
+/* Hover effect */
+#data p:hover {
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2); /* bigger shadow */
+  transform: translateY(-5px); /* lift slightly */
+}
+
+p.quote {
+  font-style: italic;
+  font-weight: bold;
+  color: #555;  /* Softer gray text */
+  background: #f9f9f9;  /* Light background to separate from page */
+  border-left: 5px solid #ccc;  /* Classic quote left bar */
+  padding: 15px 20px;
+  margin: 20px 0;
+  font-size: 18px;
+  line-height: 1.6;
+  border-radius: 8px; /* Soft corners */
+}
+
+#data ul {
+  background: #ffffff; /* white background */
+  font-size: 24px;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 10px; /* rounded corners */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* subtle shadow */
+  transition: all 0.3s ease; /* smooth hover */
+  list-style-type: none;
+}
+
+/* Hover effect */
+#data ul:hover {
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2); /* bigger shadow */
+  transform: translateY(-5px); /* lift slightly */
+}
+
+.data-block h3 {
+  font-size: 62px;
+  color: #005c99;
+  margin-top: 200px;   /* Large top space */
+  margin-bottom: 200px; /* Large bottom space */
+  padding: 100px;       /* Big padding inside the block */
+  text-align: center;
+  font-weight: bold;
+  line-height: 1.1;
+}
+
+.data-block h4 {
+  font-size: 36px;      /* Slightly bigger subheading */
+  color: #555;
+  margin-top: 50px;
+  margin-bottom: 100px;
+  text-align: center;
+  font-weight: normal;
+}
+
+
+/* Fade-in animation */
+.hidden-data {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 1s ease-out;
+}
+
+.visible-data {
+  opacity: 1;
+  transform: translateY(0);
+
+
+/* Plotly Graph Containers */
+.plotly-graph-div {
+  margin: 30px 0;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  background: white;
+  padding: 15px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+
+.hidden-data {
+  display: none;
+}
+
+
+
+
+
+
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 22px;
+  }
+  
+  .nav-link {
+    font-size: 14px;
+    margin: 0 8px;
+  }
+  
+  #data {
+    padding: 20px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*    #####ABOUT#####    */
+
+
+
+
+/* Section for Data and Visualizations */
+#about {
+  width: 90%;
+  margin: 100px auto;
+  text-align: center;
+  font-family: 'Lora', serif;
+}
+
+#about h2 {
+  margin-bottom: 20px;
+  font-size: 48px;
+}
+
+#about p {
+  background: #ffffff;
+  font-size: 24px;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  text-align: center; /* <- Add this */
+}
+
+
+
+
+/* Hover effect */
+#about p:hover {
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2); /* bigger shadow */
+  transform: translateY(-5px); /* lift slightly */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*    ##### LIGHTBOX #####    */
+
+
+.clickable-image {
+  display: block;
+  max-width: 90%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.clickable-image:hover {
+  transform: scale(1.03);
+}
+
+#lightbox {
+  display: none; /* hidden by default */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  visibility: hidden; /* <- important */
+}
+
+#lightbox.show {
+  display: flex; /* <-- critical */
+  opacity: 1;
+  visibility: visible;
+}
+
+#lightbox-img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+}
+
+
+
+
+#lightbox.hidden {
+  display: none;
+}
+
+#lightbox.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
