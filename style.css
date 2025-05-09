@@ -408,6 +408,16 @@ strong {
   margin-bottom: 80px;
 }
 
+#media p {
+  background: #ffffff; /* white background */
+  font-size: 24px;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 10px; /* rounded corners */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* subtle shadow */
+  transition: all 0.3s ease; /* smooth hover */
+}
+
 .date-block h3 {
   font-size: 80px;
   color: #DC3545;
@@ -418,6 +428,8 @@ strong {
   font-weight: bold;
   line-height: 1.1; /* Tight line height */
 }
+
+
 
 .date-block h4 {
   font-size: 24px;
